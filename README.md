@@ -17,6 +17,8 @@ Be able to parse /anything/, get an `AST`, be able to render it to /anything/
 * Python
 * ...
 
+The rendering stuff are currently mainly done into [ast-renderer.lua](https://github.com/tst2005/lua-sh-parser/blob/dev/ast-renderer.lua)
+
 # Long term goal
 
 * [ ] support the ANTL grammar format.
