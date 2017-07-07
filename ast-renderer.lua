@@ -14,6 +14,7 @@ function renderer:init(obj_type_handler)
 	self._debugvalue = tostring(self)
 	meta.__tostring = function(self) return self:render(self) or self._debugvalue or "" end
 
+	function meta:__call(...) return self:render(...) end
 	return self
 end
 
@@ -37,7 +38,7 @@ function renderer:render(t)
 	return f(self, t)
 end
 
-function renderer:concat(t, sep)
+function renderer:concat(t, sep, b, e) -- FIXME: implement the b,e
 	local r = {}
 	for i,v in ipairs(t) do
 		if type(v) == "table" then
@@ -49,23 +50,8 @@ function renderer:concat(t, sep)
 	return table.concat(r, sep or "")
 end
 
---[[
-function renderer:configure(obj_type, f)
-	self._config[obj_type] = f
-	return self
+function renderer:type(t)
+	return (self._obj_type_handler(t))
 end
 
-function renderer:adddefs(...)
-	local k = nil
-	for i, v in ipairs({...}) do
-		if k==nil then
-			k=v
-		else
-			self:configure(k,v)
-			k=nil
-		end
-	end
-	return self
-end
-]]--
 return renderer
