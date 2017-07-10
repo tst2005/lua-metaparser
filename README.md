@@ -8,7 +8,13 @@ Be able to parse /anything/, get an `AST`, be able to render it to /anything/
 * POSIX Shell (see [lua-sh-parser](https://github.com/tst2005/lua-sh-parser))
   * [x] parser
   * [ ] renderer
-* Lua (see [lua-parser](https://github.com/tst2005/lua-parser)) (see [leg](https://github.com/keplerproject/leg))
+* Lua (see [lua-parser](https://github.com/tst2005/lua-parser))
+  * [ ] parser
+  * [ ] renderer
+* Lua (see [leg](https://github.com/keplerproject/leg))
+  * [ ] parser
+  * [ ] renderer
+* Lua (see [LuaMinify](https://github.com/tst2005/LuaMinify))
   * [ ] parser
   * [ ] renderer
 * [x] [x] CSV (see [lua-csv-parser](https://github.com/tst2005/lua-csv-parser))
@@ -43,3 +49,10 @@ My work in progress ast2**anything** stuff :
 * [ ] support the ANTL grammar format.
 We will be able to support [so many format](https://github.com/antlr/grammars-v4)
 
+# Current approach
+
+* using `lpeg.re
+* define the **grammar** of the target
+* parse it to an `AST` format like metalua
+* setup all AST type handler to render into the target format
+* enjoy!
