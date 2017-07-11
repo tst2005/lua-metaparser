@@ -17,7 +17,7 @@ Be able to parse /anything/, get an `AST`, be able to render it to /anything/
 * Lua (see [LuaMinify](https://github.com/tst2005/LuaMinify))
   * [ ] parser
   * [ ] renderer
-* [x] [x] CSV (see [lua-csv-parser](https://github.com/tst2005/lua-csv-parser))
+* CSV (see [lua-csv-parser](https://github.com/tst2005/lua-csv-parser))
   * [x] parser
   * [x] renderer
 * GNOME balot (see [blt](https://github.com/tst2005/h_ckthevote/blob/master/blt.lua))
