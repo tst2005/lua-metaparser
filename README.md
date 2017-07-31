@@ -17,6 +17,14 @@ Be able to parse /anything/, get an `AST`, be able to render it to /anything/
 * Lua (see [LuaMinify](https://github.com/tst2005/LuaMinify))
   * [ ] parser
   * [ ] renderer
+* Lua (see [TypedLua](https://github.com/andremm/typedlua) or [their new repo](https://github.com/titanproject/titancompiler))
+  * [ ] parser
+  * [ ] renderer
+* Lua (see [luajit-lang-toolkit](https://github.com/franko/luajit-lang-toolkit))
+  * [x] lexer-only
+  * [x] parser-only
+  * [x] renderer: bytecode generator
+  * [x] renderer: lua code generator
 * CSV (see [lua-csv-parser](https://github.com/tst2005/lua-csv-parser))
   * [x] parser
   * [x] renderer
