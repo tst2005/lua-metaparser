@@ -22,12 +22,21 @@ function renderer:defs()
 	return self._config
 end
 
-function renderer:render(t)
-	if not t then
+function renderer:render(parentast, idx) -- TODO: check if it should be `render` or `renderer` or `rendering`
+	local ast
+	if idx==nil then -- old way self:render(t[idx])
+		ast,parentast=parentast,nil
+	elseif type(idx)=="number" then
+		ast=parentast[idx]
+	else
+		error("self:render(parentast, index)")
+	end
+
+	if not ast then
 		error("argument #1 missing", 2)
 	end
 
-	local objtype = self._obj_type_handler(t)
+	local objtype = self._obj_type_handler(ast)
 	if not objtype then
 		error("unable to determine type",2)
 	end
@@ -35,7 +44,10 @@ function renderer:render(t)
 	local f = self._config[objtype]
 	if not f then error("no handler to render type "..objtype,2) end
 
-	return f(self, t)
+	--if parentast or ast.parent then
+	--	ast = setmetatable({ast=ast,parent=parentast}, {__index=ast})
+	--end
+	return f(self, ast)
 end
 
 function renderer:concat(t, sep, b, e) -- FIXME: implement the b,e
