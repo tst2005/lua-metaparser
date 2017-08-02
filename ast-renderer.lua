@@ -54,7 +54,7 @@ function renderer:concat(t, sep, b, e) -- FIXME: implement the b,e
 	local r = {}
 	for i,v in ipairs(t) do
 		if type(v) == "table" then
-			r[#r+1] = self:render(v)
+			r[#r+1] = self:render(t, i)
 		else
 			r[#r+1] = v
 		end
