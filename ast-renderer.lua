@@ -28,8 +28,10 @@ function renderer:render(parentast, idx) -- TODO: check if it should be `render`
 		ast,parentast=parentast,nil
 	elseif type(idx)=="number" then
 		ast=parentast[idx]
+	elseif type(idx)=="string" and parentast[idx]~=nil then
+		ast=parentast[idx]
 	else
-		error("self:render(parentast, index)")
+		error("self:render(parentast, index)", 2)
 	end
 
 	if not ast then
